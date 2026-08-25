@@ -1,1 +1,230 @@
-healing tracker
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healing Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL SPACE</p>
+        <h1>Healing Tracker</h1>
+        <p class="subtitle">Notice. Understand. Heal.</p>
+      </div>
+    </header>
+
+    <nav class="nav">
+      <button class="nav-btn active" data-section="today">Today</button>
+      <button class="nav-btn" data-section="history">History</button>
+      <button class="nav-btn" data-section="insights">Insights</button>
+    </nav>
+
+    <!-- TODAY -->
+    <main id="today" class="section active">
+
+      <div class="date-card">
+        <p id="todayDate"></p>
+        <h2>How are you feeling today?</h2>
+        <p class="soft-text">There is no right or wrong answer.</p>
+      </div>
+
+      <section class="card">
+        <label class="section-label">My mood</label>
+
+        <div class="mood-grid">
+          <button class="mood-btn" data-mood="Wonderful">
+            <span>😊</span>
+            Wonderful
+          </button>
+
+          <button class="mood-btn" data-mood="Good">
+            <span>🙂</span>
+            Good
+          </button>
+
+          <button class="mood-btn" data-mood="Okay">
+            <span>😐</span>
+            Okay
+          </button>
+
+          <button class="mood-btn" data-mood="Low">
+            <span>😔</span>
+            Low
+          </button>
+
+          <button class="mood-btn" data-mood="Difficult">
+            <span>😣</span>
+            Difficult
+          </button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="label-row">
+          <label class="section-label" for="intensity">How intense is it?</label>
+          <span id="intensityValue">5 / 10</span>
+        </div>
+
+        <input
+          type="range"
+          id="intensity"
+          min="1"
+          max="10"
+          value="5"
+        >
+
+        <div class="range-labels">
+          <span>Very mild</span>
+          <span>Very intense</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <label class="section-label">What am I feeling?</label>
+
+        <div class="tag-container" id="emotionTags">
+          <button class="tag" data-emotion="Calm">Calm</button>
+          <button class="tag" data-emotion="Happy">Happy</button>
+          <button class="tag" data-emotion="Sad">Sad</button>
+          <button class="tag" data-emotion="Anxious">Anxious</button>
+          <button class="tag" data-emotion="Angry">Angry</button>
+          <button class="tag" data-emotion="Overwhelmed">Overwhelmed</button>
+          <button class="tag" data-emotion="Lonely">Lonely</button>
+          <button class="tag" data-emotion="Hopeful">Hopeful</button>
+          <button class="tag" data-emotion="Numb">Numb</button>
+          <button class="tag" data-emotion="Grateful">Grateful</button>
+          <button class="tag" data-emotion="Confused">Confused</button>
+          <button class="tag" data-emotion="Peaceful">Peaceful</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <label class="section-label" for="reflection">
+          What's going on for me?
+        </label>
+
+        <textarea
+          id="reflection"
+          placeholder="Write whatever feels true right now..."
+        ></textarea>
+      </section>
+
+      <section class="card">
+        <label class="section-label" for="trigger">
+          Is there anything that triggered this?
+        </label>
+
+        <textarea
+          id="trigger"
+          placeholder="A situation, thought, person, memory, event..."
+        ></textarea>
+      </section>
+
+      <section class="card">
+        <label class="section-label" for="helped">
+          What helped me today?
+        </label>
+
+        <textarea
+          id="helped"
+          placeholder="Rest, music, movement, talking to someone, being alone..."
+        ></textarea>
+      </section>
+
+      <button id="saveBtn" class="save-btn">
+        Save today's check-in
+      </button>
+
+      <p id="saveMessage" class="save-message"></p>
+
+    </main>
+
+    <!-- HISTORY -->
+    <main id="history" class="section">
+
+      <div class="page-heading">
+        <p class="eyebrow">LOOKING BACK</p>
+        <h2>Your journey</h2>
+        <p class="soft-text">
+          Your previous check-ins live here.
+        </p>
+      </div>
+
+      <div id="historyList"></div>
+
+      <div id="emptyHistory" class="empty-state">
+        <div class="empty-icon">🌱</div>
+        <h3>No check-ins yet</h3>
+        <p>
+          Your first check-in will appear here when you're ready.
+        </p>
+      </div>
+
+    </main>
+
+    <!-- INSIGHTS -->
+    <main id="insights" class="section">
+
+      <div class="page-heading">
+        <p class="eyebrow">NOTICE THE PATTERNS</p>
+        <h2>Your insights</h2>
+        <p class="soft-text">
+          Small observations can reveal bigger patterns.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <span class="stat-number" id="totalEntries">0</span>
+          <span class="stat-label">Check-ins</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number" id="averageIntensity">—</span>
+          <span class="stat-label">Average intensity</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number" id="mostCommonMood">—</span>
+          <span class="stat-label">Most common mood</span>
+        </div>
+
+      </div>
+
+      <section class="card">
+        <h3 class="card-heading">Mood over time</h3>
+        <div id="moodChart" class="mood-chart"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="card-heading">Emotions I experience most</h3>
+        <div id="emotionSummary"></div>
+      </section>
+
+      <div class="reflection-box">
+        <span>🌿</span>
+        <p>
+          Healing isn't always about feeling better every day.
+          Sometimes it's about becoming better at noticing what
+          you feel, understanding why, and responding with care.
+        </p>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>Healing Tracker</p>
+      <span>Your entries are stored locally on this device.</span>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
