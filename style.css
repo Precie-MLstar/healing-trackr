@@ -9,10 +9,10 @@
   --card: #ffffff;
   --text: #302d2b;
   --muted: #817a75;
-  --accent: pink;
+  --accent: burgundy;
   --accent-light: #eee5e1;
   --border: #e8e1dc;
-  --shadow: 0 8px 30px rgba(70, 55, 45, 0.06);
+  --shadow: 0 8px 60px rgba(70, 55, 45, 0.06);
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
   background: var(--background);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.9;
 }
 
 button,
@@ -51,7 +51,7 @@ button {
 }
 
 .eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   letter-spacing: 0.18em;
   color: var(--accent);
   font-weight: 700;
