@@ -20,7 +20,7 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    sans-serif;
+    arial;
 
   background: var(--background);
   color: var(--text);
